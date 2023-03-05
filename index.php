@@ -17,12 +17,14 @@
             public $year;
             public $rating;
             public $votes;
+            public $genres = [];
 
-            function __construct($_title, $_year, $_rating, $_votes) {
+            function __construct($_title, $_year, $_rating, $_votes, $_genres) {
                 $this->title = $_title;
                 $this->year = $_year;
                 $this->rating = $_rating;
                 $this->votes = $_votes;
+                $this->genres = $_genres;
             }
 
             function displayInfo() {
@@ -30,12 +32,12 @@
                 echo "Year: " . $this->year . "<br>";
                 echo "Rating: " . $this->rating . "<br>";
                 echo "Votes: " . $this->votes . "<br>";
-
+                echo "Genres: " . implode(", ", $this->genres) . "<br>";
             }
         }
 
-        $movie1 = new Movie("The Shawshank Redemption", 1994, 9.4, "2.7m");
-        $movie2 = new Movie("Donnie Darko", 2001, 8.0, "811k");
+        $movie1 = new Movie("The Shawshank Redemption", 1994, 9.4, "2.7m",  ["Drama"]);
+        $movie2 = new Movie("Donnie Darko", 2001, 8.0, "811k", ["Drama", "Mystery", "Sci-Fi"]);
 
         $movie1->displayInfo();
         echo "<br>";
